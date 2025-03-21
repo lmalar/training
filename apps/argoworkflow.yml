@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argoworkflow
+  namespace: argo
+  labels:
+    app: argoworkflow
+spec:
+  project: default
+  source:
+    repoURL: https://gitlab.com/tomkukral/training-model.git
+    targetRevision: HEAD
+    path: argo/workflow
+  destination:
+    name: in-cluster
+    namespace: argo
+  syncPolicy:
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true

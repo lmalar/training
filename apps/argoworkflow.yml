@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argoworkflow
+  name: argoworkflows
   namespace: argo
   labels:
-    app: argoworkflow
+    app: argoworkflows
 spec:
   project: default
   source:

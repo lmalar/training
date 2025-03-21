@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: opa-exporter
+  namespace: argo
+  labels:
+    app: opa-exporter
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/tomkukral/kubernetes-examples.git
+    targetRevision: HEAD
+    path: policy/opa-exporter
+  destination:
+    name: in-cluster
+    namespace: opa-exporter
+  syncPolicy:
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
+
